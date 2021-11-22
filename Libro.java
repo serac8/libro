@@ -13,6 +13,7 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroDePaginas;
+    private String numeroDeReferencia;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -22,6 +23,7 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroDePaginas = numeroPaginas;
+        numeroDeReferencia = "";
     }
     
     
@@ -46,13 +48,42 @@ public class Libro {
     }
     
     public void imprimeDetalles () {
-        System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas);
+        if (numeroDeReferencia.length() > 0) {
+            System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia);
+        }
+        else{
+            numeroDeReferencia = "ZZZ";
+            System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia);
+            
+        }
     } 
     
     public String getDetalles() {
         String detalles = "";
-        detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas;
+        if (numeroDeReferencia.length() > 0) {
+            detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia;
+        }
+        else{
+            numeroDeReferencia = "ZZZ";
+            detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia;
+
+        }
+        
         return detalles;
         
+    }
+    
+    public void setNumeroRef(String numeroReferencia) {
+        if(numeroReferencia.length() < 3){
+            System.out.println("Introducir un valor superior a 3 caracteres");
+        }
+        else{
+            this.numeroDeReferencia = numeroReferencia;
+        }
+        
+    }
+   
+    public String getNumeroReferencia() {
+        return numeroDeReferencia;
     }
 }
