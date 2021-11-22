@@ -44,4 +44,15 @@ public class Libro {
     public int getNumeroDePaginas() {
         return numeroDePaginas;
     }
+    
+    public void imprimeDetalles () {
+        System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas);
+    } 
+    
+    public String getDetalles() {
+        String detalles = "";
+        detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas;
+        return detalles;
+        
+    }
 }
