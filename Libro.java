@@ -30,4 +30,12 @@ public class Libro {
     public String getTitulo() {
         return titulo;
     }
+    
+    public void imprimeTitulo () {
+        System.out.println("El título es: " + titulo);
+    }
+    
+    public void imprimeAutor () {
+        System.out.println("El autor es: " + autor);
+    }
 }
