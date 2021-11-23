@@ -15,17 +15,19 @@ public class Libro {
     private int numeroDePaginas;
     private String numeroDeReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroPaginas)
+    public Libro(String autorLibro, String tituloLibro, int numeroPaginas, boolean deTexto)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroDePaginas = numeroPaginas;
         numeroDeReferencia = "";
         vecesPrestado = 0;
+        esLibroDeTexto = deTexto;
     }
     
     
@@ -51,24 +53,48 @@ public class Libro {
     
     public void imprimeDetalles () {
         if (numeroDeReferencia.length() > 0) {
-            System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado);
+            
+            if(esLibroDeTexto == true){
+                System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Verdadero");
+            }
+            else {
+                System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Falso");
+            }
+        
         }
+            
         else{
            
-            System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado);
-            
+            if(esLibroDeTexto == true){
+                System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Verdadero");
+            }
+            else {
+                System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Falso");
+            }
         }
     } 
     
     public String getDetalles() {
         String detalles = "";
         if (numeroDeReferencia.length() > 0) {
-            detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado;
+            
+            if(esLibroDeTexto == true){
+                detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Verdadero";
+            }
+            else{
+                detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Falso";
+            }
+        
         }
         else{
             
             detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado;
-
+            if(esLibroDeTexto == true){
+                detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Verdadero";
+            }
+            else{
+                detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Falso";
+            }
         }
         
         return detalles;
@@ -97,5 +123,10 @@ public class Libro {
     
     public int getVecesPrestado(){
         return vecesPrestado;
+    }
+    
+    
+    public boolean getEsDeTexto(){
+        return esLibroDeTexto;
     }
 }
