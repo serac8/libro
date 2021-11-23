@@ -29,87 +29,77 @@ public class Libro {
         vecesPrestado = 0;
         esLibroDeTexto = deTexto;
     }
-    
-    
+
     public String getAutor() {
         return autor;
     }
-    
+
     public String getTitulo() {
         return titulo;
     }
-    
+
     public void imprimeTitulo () {
         System.out.println("El título es: " + titulo);
     }
-    
+
     public void imprimeAutor () {
         System.out.println("El autor es: " + autor);
     }
-    
+
     public int getNumeroDePaginas() {
         return numeroDePaginas;
     }
-    
-   
+
     
     public void imprimeDetalles () {
         String esDeTexto= "";
-        
+        if(esLibroDeTexto == true){
+            esDeTexto = "Verdadero";
+        }
+        else {
+            esDeTexto = "Falso";
+        }
+        String numeroReferencia = "";
+
         if (numeroDeReferencia.length() > 0) {
-
-            if(esLibroDeTexto == true){
-               esDeTexto = "Verdadero";
-            }
-            else {
-                esDeTexto = "Falso";
-            }
-        System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: " + esDeTexto);
-
+            numeroReferencia = numeroDeReferencia;
         }
-            
         else{
-            if(esLibroDeTexto == true){
-               esDeTexto = "Verdadero";
-            }
-            else {
-                esDeTexto = "Falso";
-            }
-        System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: " + esDeTexto);
+            numeroReferencia = "ZZZ";            
 
         }
+        System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: " + esDeTexto);
+
     } 
-    
+
     public String getDetalles() {
         String detalles = "";
         String esDeTexto = ""; 
-        
-        if (numeroDeReferencia.length() > 0) {
-            if(esLibroDeTexto == true){
-               esDeTexto = "Verdadero";
+        String numeroReferencia = "";
+        if(esLibroDeTexto == true){
+                esDeTexto = "Verdadero";
             }
             else {
                 esDeTexto = "Falso";
             }
-        detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: " + esDeTexto;
+            
+        if (numeroDeReferencia.length() > 0) {
+            
+            numeroReferencia = numeroDeReferencia;
 
         }
         else{
+
+            numeroReferencia = "ZZZ";
             
-             if(esLibroDeTexto == true){
-               esDeTexto = "Verdadero";
-            }
-            else {
-                esDeTexto = "Falso";
-            }
-        detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: " + esDeTexto;
 
         }
-        
+        detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: " + esDeTexto;
+
         return detalles;
-        
+
     }
-    
+
     public void setNumeroRef(String numeroReferencia) {
         if(numeroReferencia.length() < 3){
             System.out.println("Introducir un valor superior a 3 caracteres");
@@ -117,24 +107,22 @@ public class Libro {
         else{
             this.numeroDeReferencia = numeroReferencia;
         }
-        
+
     }
-   
+
     public String getNumeroReferencia() {
         return numeroDeReferencia;
     }
-    
-    
+
     public void prestar(){
         vecesPrestado = vecesPrestado + 1;
 
     }
-    
+
     public int getVecesPrestado(){
         return vecesPrestado;
     }
-    
-    
+
     public boolean getEsDeTexto(){
         return esLibroDeTexto;
     }
