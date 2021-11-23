@@ -51,50 +51,59 @@ public class Libro {
         return numeroDePaginas;
     }
     
+   
+    
     public void imprimeDetalles () {
+        String esDeTexto= "";
+        
         if (numeroDeReferencia.length() > 0) {
-            
+
             if(esLibroDeTexto == true){
-                System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Verdadero");
+               esDeTexto = "Verdadero";
             }
             else {
-                System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Falso");
+                esDeTexto = "Falso";
             }
-        
+        System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: " + esDeTexto);
+
         }
             
         else{
-           
             if(esLibroDeTexto == true){
-                System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Verdadero");
+               esDeTexto = "Verdadero";
             }
             else {
-                System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Falso");
+                esDeTexto = "Falso";
             }
+        System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: " + esDeTexto);
+
         }
     } 
     
     public String getDetalles() {
         String detalles = "";
-        if (numeroDeReferencia.length() > 0) {
-            
-            if(esLibroDeTexto == true){
-                detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Verdadero";
-            }
-            else{
-                detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Falso";
-            }
+        String esDeTexto = ""; 
         
+        if (numeroDeReferencia.length() > 0) {
+            if(esLibroDeTexto == true){
+               esDeTexto = "Verdadero";
+            }
+            else {
+                esDeTexto = "Falso";
+            }
+        detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: " + esDeTexto;
+
         }
         else{
             
-            detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado;
-            if(esLibroDeTexto == true){
-                detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Verdadero";
+             if(esLibroDeTexto == true){
+               esDeTexto = "Verdadero";
             }
-            else{
-                detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: Falso";
+            else {
+                esDeTexto = "Falso";
             }
+        detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado + ".  Libro de texto: " + esDeTexto;
+
         }
         
         return detalles;
