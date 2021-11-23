@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int numeroDePaginas;
     private String numeroDeReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,6 +25,7 @@ public class Libro {
         titulo = tituloLibro;
         numeroDePaginas = numeroPaginas;
         numeroDeReferencia = "";
+        vecesPrestado = 0;
     }
     
     
@@ -49,11 +51,11 @@ public class Libro {
     
     public void imprimeDetalles () {
         if (numeroDeReferencia.length() > 0) {
-            System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia);
+            System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado);
         }
         else{
            
-            System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ");
+            System.out.println("Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado);
             
         }
     } 
@@ -61,11 +63,11 @@ public class Libro {
     public String getDetalles() {
         String detalles = "";
         if (numeroDeReferencia.length() > 0) {
-            detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia;
+            detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: " + numeroDeReferencia + ".  Veces prestado: " + vecesPrestado;
         }
         else{
             
-            detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ";
+            detalles = "Título: " + titulo + ".  Autor: " + autor + ".  Numero de páginas: " + numeroDePaginas + ".  Número de referencia: ZZZ" + ".  Veces prestado: " + vecesPrestado;
 
         }
         
@@ -85,5 +87,15 @@ public class Libro {
    
     public String getNumeroReferencia() {
         return numeroDeReferencia;
+    }
+    
+    
+    public void prestar(){
+        vecesPrestado = vecesPrestado + 1;
+
+    }
+    
+    public int getVecesPrestado(){
+        return vecesPrestado;
     }
 }
